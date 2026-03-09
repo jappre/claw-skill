@@ -436,3 +436,41 @@ LaunchAgent 的优点：
 1. 项目放在 `workspace/projects`，不要放 `Documents`
 2. runtime 文件独立放在 `workspace/runtime/auto-advance`
 3. 永远按 3–5 个 step 一批来跑
+
+
+---
+
+## 18. 最小模板包（可复制骨架）
+
+为了让别的 OpenClaw 直接照抄搭建，本仓库补了一套最小模板：
+
+- `docs/templates/auto-workflow-minimal/projects/example-project/`
+- `docs/templates/auto-workflow-minimal/runtime/auto-advance/`
+- `docs/templates/auto-workflow-minimal/scripts/auto_advance_projects.py`
+- `docs/templates/auto-workflow-minimal/LaunchAgents/com.example.openclaw.project-auto-advance.plist`
+
+### 模板包用途
+
+它不是完整产品，而是一个“最小可运行骨架”：
+- 有项目目录
+- 有 runtime 目录
+- 有 state / trace / last-run 文件
+- 有 3 个 step 的自动推进脚本
+- 有 LaunchAgent 触发器模板
+
+### 推荐使用方式
+
+1. 复制整套模板到你自己的 workspace
+2. 改 `example-project` 为真实项目名
+3. 改脚本中的 `WORKSPACE` / 路径
+4. 改 `STEPS` 为你的真实小步任务
+5. 加载 LaunchAgent
+6. 手工 kickstart 一次验证
+
+### 模板包的定位
+
+这套模板的价值不在于“智能”，而在于：
+- 可复制
+- 可调试
+- 可扩展
+- 适合作为别的 OpenClaw 自动化工作的起点
